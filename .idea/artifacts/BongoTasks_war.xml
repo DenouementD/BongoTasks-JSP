@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BongoTasks:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BongoTasks</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="BongoTasks-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BongoTasks:war exploded" />
+    </root>
+  </artifact>
+</component>
