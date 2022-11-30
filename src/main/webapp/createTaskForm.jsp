@@ -10,10 +10,26 @@
 <html>
     <head>
         <title>Create a Task</title>
+
+        <style>
+            html, body {
+                height: 100vh;
+
+            }
+
+            .main {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
     </head>
 
     <body>
-        <form>
+        <form class="main">
             <label for="taskName">Task Name</label>
             <input type="text" id="taskName" name="taskName" placeholder="Task Name">
             <br>
