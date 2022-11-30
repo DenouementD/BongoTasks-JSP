@@ -1,9 +1,9 @@
 package com.example.bongotasks;
 
 public class Task {
-    public String taskName;
-    public String taskDesc;
-    public boolean status;
+    private String taskName;
+    private String taskDesc;
+    private boolean status;
 
     public Task(String taskName, String taskDesc, boolean status) {
         this.taskName = taskName;
