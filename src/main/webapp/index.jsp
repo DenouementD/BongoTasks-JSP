@@ -9,5 +9,9 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<%--<form method="post" action="confirmDelete.jsp">--%>
+
+<%--    <input type="submit" value="submit">--%>
+</form>
 </body>
 </html>
