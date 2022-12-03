@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JSP - Hello World</title>
+        <title>BongoTasks</title>
     </head>
     <body>
-        <h1><%= "Hello ! " %>
-        </h1>
-        <br/>
-        <a href="hello-servlet">Hello Servlet</a>
+        <jsp:forward page="TaskServlet">
+            <jsp:param name="action" value="list"/>
+        </jsp:forward>
     </body>
 </html>
