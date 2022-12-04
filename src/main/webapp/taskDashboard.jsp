@@ -77,7 +77,7 @@
         </div>
         <br/>
         <div class="add-task-container">
-            <button class="add-task-btn">Add Task</button>
+            <button onclick="location.href='createTaskForm.jsp'">Add Task</button>
         </div>
     </body>
 </html>
