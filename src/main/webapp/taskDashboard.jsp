@@ -12,7 +12,6 @@
 <html>
     <head>
         <title>BongoTasks</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <style>
         table {
@@ -25,6 +24,7 @@
         td {
             text-align: center;
             border: 1px solid black;
+
         }
 
         th {
@@ -41,7 +41,7 @@
         }
 
         .table-checkbox {
-            width: 5%;
+            width: 10%;
         }
 
         .add-task-container {
@@ -60,10 +60,11 @@
                     <th>Task</th>
                     <th>Description</th>
                     <th></th>
+                    <th>Delete Task</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
-                        <td class="table-checkbox">
+                        <td class="table-checkbox" width="50px">
                             <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
                         </td>
                         <td>
@@ -75,13 +76,18 @@
                         <td>
                             <button onclick="location.href='editTaskForm.jsp'">Edit</button>
                         </td>
+                        <td width="100px">
+                            <form method="post" action="confirmDelete.jsp">
+                                <input type="submit" value="Delete Task">
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
         <br/>
         <div class="add-task-container">
-            <button class="add-task-btn">Add Task</button>
+            <button onclick="location.href='createTaskForm.jsp'">Add Task</button>
         </div>
     </body>
 </html>

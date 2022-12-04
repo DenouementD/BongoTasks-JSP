@@ -17,7 +17,7 @@
         height: 100vh;
         justify-content: center;
         align-items: center;
-        background: #030331;
+        background: #0D1117;
         padding: 10px;
       }
 
@@ -26,7 +26,7 @@
         width: 100%;
         padding: 25px 30px;
         border-radius: 25px;
-        background: #000041;
+        background: #161B22;
       }
 
       .edit-title {
