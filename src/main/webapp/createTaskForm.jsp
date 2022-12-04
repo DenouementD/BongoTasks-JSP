@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        <form class="main">
+        <form class="main" action="TaskServlet" method="post">
             <label for="taskName">Task Name</label>
             <input type="text" id="taskName" name="taskName" placeholder="Task Name">
             <br>
