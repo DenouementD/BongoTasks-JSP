@@ -12,6 +12,7 @@
 <html>
     <head>
         <title>BongoTasks</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <style>
         table {
@@ -24,7 +25,6 @@
         td {
             text-align: center;
             border: 1px solid black;
-
         }
 
         th {
@@ -41,7 +41,7 @@
         }
 
         .table-checkbox {
-            width: 10%;
+            width: 5%;
         }
 
         .add-task-container {
@@ -59,6 +59,7 @@
                     <th>Completed</th>
                     <th>Task</th>
                     <th>Description</th>
+                    <th></th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
@@ -70,6 +71,9 @@
                         </td>
                         <td>
                                 ${task.taskDesc}
+                        </td>
+                        <td>
+                            <button>Edit</button>
                         </td>
                     </tr>
                 </c:forEach>
