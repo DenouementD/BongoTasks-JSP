@@ -20,6 +20,9 @@
 <tr>
     <th><input type="button" id=b3 value="Delete" name="button" onClick='submitForm(this)'/></th>
 </tr>
+<form method="post" action="taskDashboard.jsp">
+    <input type="submit" value="Confirm Deletion">
+</form>
 <%--<button> Confirm Deletion </button>--%>
 </body>
 </html>

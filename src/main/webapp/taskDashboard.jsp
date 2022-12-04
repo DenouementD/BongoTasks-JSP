@@ -56,20 +56,26 @@
         <div class="table-container">
             <table>
                 <tr>
-                    <th>Completed</th>
-                    <th>Task</th>
                     <th>Description</th>
+                    <th>Task</th>
+                    <th>Completed</th>
+                    <th>Delete Task</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
-                        <td class="table-checkbox">
-                            <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
-                        </td>
-                        <td>
+                        <td width="100px">
                                 ${task.taskName}
                         </td>
-                        <td>
+                        <td width="200px">
                                 ${task.taskDesc}
+                        </td>
+                        <td class="table-checkbox" width="50px">
+                            <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
+                        </td>
+                        <td width="100px">
+                            <form method="post" action="confirmDelete.jsp">
+                                <input type="submit" value="Delete Task">
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
