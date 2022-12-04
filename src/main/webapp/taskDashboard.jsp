@@ -73,7 +73,7 @@
                                 ${task.taskDesc}
                         </td>
                         <td>
-                            <button>Edit</button>
+                            <button onclick="location.href='editTaskForm.jsp'">Edit</button>
                         </td>
                     </tr>
                 </c:forEach>
