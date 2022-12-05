@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.Console;
 import java.io.IOException;
 
 @WebServlet(name = "TaskServlet", value = "/TaskServlet")
@@ -19,6 +20,11 @@ public class TaskServlet extends HttpServlet {
         session.setAttribute("taskList", sampleTasks.taskList);
         request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
 
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp);
     }
 
     @Override
