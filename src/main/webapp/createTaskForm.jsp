@@ -12,7 +12,7 @@
         <title>Create a Task</title>
 
         <style>
-            *{
+            * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -27,6 +27,10 @@
                 align-items: center;
                 background: #0D1117;
                 padding: 10px;
+            }
+
+            button {
+                cursor: pointer;
             }
 
             .edit-bg {
@@ -102,7 +106,8 @@
                 background-color: #2e9f43;
             }
         </style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="edit-bg">
@@ -116,19 +121,20 @@
                 </div>
                 <div>
                     <label class="form-label">Description</label>
-                    <textarea name="taskDesc" class="form-input form-textarea" placeholder="e.g. 'Go to UnfairPrice buy milk and come back home'"></textarea>
+                    <textarea name="taskDesc" class="form-input form-textarea"
+                              placeholder="e.g. 'Go to UnfairPrice buy milk and come back home'"></textarea>
                 </div>
                 <div class="form-buttons">
                     <button
-                        class="input-button cancel"
-                        type="submit"
+                            class="input-button cancel"
+                            type="submit"
 
                     >
                         <i class="fa fa-ban"></i> Cancel
                     </button>
                     <button
-                        class="input-button confirm"
-                        type="submit"
+                            class="input-button confirm"
+                            type="submit"
                     >
                         <i class="fa fa-check"></i> Confirm
                     </button>
