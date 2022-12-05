@@ -68,10 +68,10 @@
                             <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
                         </td>
                         <td>
-                                ${task.taskName}
+                                ${task.name}
                         </td>
                         <td>
-                                ${task.taskDesc}
+                                ${task.description}
                         </td>
                         <td>
                             <button onclick="location.href='editTaskForm.jsp'">Edit</button>
