@@ -59,17 +59,27 @@
                     <th>Completed</th>
                     <th>Task</th>
                     <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete Task</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
-                        <td class="table-checkbox">
+                        <td class="table-checkbox" width="50px">
                             <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
                         </td>
                         <td>
-                                ${task.taskName}
+                                ${task.name}
                         </td>
                         <td>
-                                ${task.taskDesc}
+                                ${task.description}
+                        </td>
+                        <td>
+                            <button onclick="location.href='editTaskForm.jsp'">Edit</button>
+                        </td>
+                        <td width="100px">
+                            <form method="post" action="confirmDelete.jsp">
+                                <input type="submit" value="Delete Task">
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
