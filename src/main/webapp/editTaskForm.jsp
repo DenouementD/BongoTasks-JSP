@@ -94,7 +94,6 @@
         /*outline: 2px solid #2e9f43;*/
         background-color: #2e9f43;
       }
-
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
