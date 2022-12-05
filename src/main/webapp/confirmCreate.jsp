@@ -15,6 +15,10 @@
 
             }
 
+            button {
+                cursor: pointer;
+            }
+
             .main {
                 height: 100%;
                 display: flex;

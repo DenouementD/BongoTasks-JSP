@@ -10,84 +10,179 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>BongoTasks</title>
-    </head>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid black;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI";
         }
 
-        table,
-        td {
-            text-align: center;
-            border: 1px solid black;
-
+        body {
+            color: white;
+            padding: 10px;
+            background: #0D1117;
         }
 
-        th {
-            background-color: #333;
-            color: #fff;
+        button {
+            cursor: pointer;
+        }
+
+        .topbar {
+            display: flex;
+            flex-direction: row;
+            max-width: 75%;
+            justify-content: space-between;
+            padding: 25px 0 20px 0;
+            margin: auto;
+        }
+
+
+        .input-button {
+            height: 50px;
+            width: 8em;
+            outline: none;
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-weight: 500;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            background-color: #2e9f43;
+        }
+
+        .bongo-cat {
+            height: 4ch;
         }
 
         .title {
             padding: 0 16px;
         }
 
-        .table-container {
-            padding: 0 16px;
+        .title-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .container-bg {
+            display: flex;
+            max-width: 75%;
+            width: 100%;
+            padding: 0 25px 0 25px;
+            border-radius: 10px;
+            background: #161B22;
+            outline: 2px solid #30363d;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        .task-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            width: 100%;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #101318;
+        }
+
+        .centered-table {
+            text-align: center;
+        }
+
+        .task-table th {
+            background-color: #202731;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        .task-table td {
+            padding: 10px;
+        }
+
+        .table-button {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            color: white;
+            font-size: 2em;
         }
 
         .table-checkbox {
-            width: 10%;
+            transform: scale(2);
         }
 
-        .add-task-container {
-
-            padding-right: 16px;
-            display: flex;
-            justify-content: end;
+        .table-task {
+            font-size: 15px;
+            font-weight: 600;
         }
     </style>
+    <head>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>BongoTasks</title>
+    </head>
     <body>
-        <h1 class="title">Tasks</h1>
-        <div class="table-container">
-            <table>
+        <div class="topbar">
+            <div class="title-flex">
+                <img class="bongo-cat"
+                     src="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif"/>
+                <h1 class="title">
+                    BongoTasks
+                </h1>
+            </div>
+            <button
+                    class="input-button"
+                    type="submit"
+                    onclick="location.href='createTaskForm.jsp'"
+            >
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Task
+            </button>
+        </div>
+        <div class="container-bg">
+            <table class="task-table">
                 <tr>
-                    <th>Completed</th>
+                    <th>Status</th>
                     <th>Task</th>
                     <th>Description</th>
                     <th>Edit</th>
-                    <th>Delete Task</th>
+                    <th>Delete</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
-                        <td class="table-checkbox" width="50px">
-                            <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
+                        <td class="centered-table" width="50px">
+                            <input
+                                    class="table-checkbox"
+                                    type="checkbox"
+                                    value="Status"
+                                ${task.status ? "checked" : ""}
+                            />
                         </td>
-                        <td>
+                        <td class="table-task" width="200px">
                                 ${task.name}
                         </td>
                         <td>
                                 ${task.description}
                         </td>
-                        <td>
-                            <button onclick="location.href='editTaskForm.jsp'">Edit</button>
+                        <td class="centered-table" width="20px">
+                            <button class="table-button" onclick="location.href='editTaskForm.jsp'">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </button>
                         </td>
-                        <td width="100px">
+                        <td class="centered-table" width="20px">
                             <form method="post" action="confirmDelete.jsp">
-                                <input type="submit" value="Delete Task">
+                                <button class="table-button" type="submit" value="Delete Task">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
-        </div>
-        <br/>
-        <div class="add-task-container">
-            <button onclick="location.href='createTaskForm.jsp'">Add Task</button>
         </div>
     </body>
 </html>
