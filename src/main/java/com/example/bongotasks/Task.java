@@ -1,41 +1,31 @@
 package com.example.bongotasks;
 
 public class Task {
-    private String id;
-    private String name;
-    private String description;
+    private String taskName;
+    private String taskDesc;
     private boolean status;
 
-    public Task(String id, String name, String description, boolean status) {
+    public Task(String taskName, String taskDesc, boolean status) {
         super();
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        this.taskName = taskName;
+        this.taskDesc = taskDesc;
         this.status = status;
     }
 
-    public String getId() {
-        return id;
+    public String getTaskName() {
+        return taskName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
-    public String getName() {
-        return name;
+    public String getTaskDesc() {
+        return taskDesc;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTaskDesc(String taskDesc) {
+        this.taskDesc = taskDesc;
     }
 
     public boolean isStatus() {
