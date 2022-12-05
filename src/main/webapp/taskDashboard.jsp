@@ -59,7 +59,7 @@
                     <th>Completed</th>
                     <th>Task</th>
                     <th>Description</th>
-                    <th></th>
+                    <th>Edit</th>
                     <th>Delete Task</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">

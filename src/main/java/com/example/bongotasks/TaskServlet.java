@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.Console;
 import java.io.IOException;
 
 @WebServlet(name = "TaskServlet", value = "/TaskServlet")
@@ -18,6 +19,11 @@ public class TaskServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("taskList", sampleTasks.taskList);
         request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
+
+    }
+
+    private void editTask(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getParameter("taskName"));
 
     }
 

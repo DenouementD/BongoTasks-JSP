@@ -25,8 +25,9 @@
         max-width: 500px;
         width: 100%;
         padding: 25px 30px;
-        border-radius: 25px;
+        border-radius: 15px;
         background: #161B22;
+        outline: 2px solid #30363d;
       }
 
       .edit-title {
@@ -62,21 +63,67 @@
         font-weight: 500;
       }
 
+      .form-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .input-button {
+        margin-top: 5px;
+        height: 3em;
+        width: 40%;
+        outline: none;
+        color: white;
+        border: none;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        background-color: #30363d;
+      }
+
+      .cancel {
+        /*outline: 2px solid #da3633;*/
+        background-color: #da3633;
+      }
+
+      .confirm {
+        /*outline: 2px solid #2e9f43;*/
+        background-color: #2e9f43;
+      }
+
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="edit-bg">
-      <form>
+      <form action="/TaskServlet" method="post">
         <div class="edit-title">
           Edit Task
         </div>
         <div>
           <label class="form-label">Name</label>
-          <input name="taskName" class="form-input">
+          <input name="taskName" class="form-input" placeholder="e.g. 'Buy Milk'">
         </div>
         <div>
           <label class="form-label">Description</label>
-          <textarea name="taskDesc" class="form-input form-textarea"></textarea>
+          <textarea name="taskDesc" class="form-input form-textarea" placeholder="e.g. 'Go to UnfairPrice buy milk and come back home'"></textarea>
+        </div>
+        <div class="form-buttons">
+          <button
+            class="input-button cancel"
+            type="submit"
+          >
+            <i class="fa fa-ban"></i> Cancel
+          </button>
+          <button
+            class="input-button confirm"
+            type="submit"
+          >
+            <i class="fa fa-check"></i> Confirm
+          </button>
         </div>
       </form>
     </div>
