@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.Console;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -94,5 +96,4 @@ public class TaskServlet extends HttpServlet {
         doGet(request, response);
 
     }
-
 }

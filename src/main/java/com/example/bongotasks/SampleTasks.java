@@ -16,4 +16,7 @@ public class SampleTasks {
         return taskList;
     }
 
+    public void addTask(Task task) {
+        taskList.add(task);
+    }
 }
