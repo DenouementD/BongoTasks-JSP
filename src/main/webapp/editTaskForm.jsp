@@ -1,3 +1,4 @@
+<%@ page import="com.example.bongotasks.TaskServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -99,7 +100,7 @@
   </head>
   <body>
     <div class="edit-bg">
-      <form action="/TaskServlet" method="post">
+      <form action="TaskServlet" method="get">
         <div class="edit-title">
           Edit Task
         </div>
@@ -115,6 +116,7 @@
           <button
             class="input-button cancel"
             type="submit"
+
           >
             <i class="fa fa-ban"></i> Cancel
           </button>

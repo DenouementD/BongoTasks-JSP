@@ -22,9 +22,9 @@ public class TaskServlet extends HttpServlet {
 
     }
 
-    private void editTask(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("taskName"));
-
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp);
     }
 
     @Override
