@@ -66,10 +66,10 @@
                             <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
                         </td>
                         <td>
-                                ${task.taskName}
+                                ${task.name}
                         </td>
                         <td>
-                                ${task.taskDesc}
+                                ${task.description}
                         </td>
                     </tr>
                 </c:forEach>

@@ -54,10 +54,36 @@ public class TaskServlet extends HttpServlet {
         request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
     }
 
+    private void addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        // @PuttTim - Please add the code to add a task to the database
+    }
+
+    private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        // @UnscriptedLogic - Please add the code to update a task in the database
+    }
+
+    private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        // @DenouementD - Please add the code to delete a task in the database
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String servletPath = request.getServletPath();
         try {
-            getTasks(request, response);
+            switch (servletPath) {
+                case "/TaskServlet/addTask":
+                    addTask(request, response);
+                    break;
+                case "/TaskServlet/updateTask":
+                    updateTask(request, response);
+                    break;
+                case "/TaskServlet/deleteTask":
+                    deleteTask(request, response);
+                    break;
+                default:
+                    getTasks(request, response);
+                    break;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -65,19 +91,8 @@ public class TaskServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println(request.getParameter("taskName"));
-//        System.out.println(request.getParameter("taskDesc"));
-//        sampleTasks.addTask(new Task(, request.getParameter("taskName"), request.getParameter("taskDesc"), false));
-//        request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
+        doGet(request, response);
+
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
-    }
 }
