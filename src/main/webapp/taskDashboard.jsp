@@ -156,7 +156,7 @@
                             />
                         </td>
                         <td class="table-task" width="200px">
-                                ${task.taskName}
+                                ${task.name}
                         </td>
                         <td>
                                 ${task.description}
