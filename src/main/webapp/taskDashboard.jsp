@@ -59,10 +59,12 @@
                     <th>Completed</th>
                     <th>Task</th>
                     <th>Description</th>
+                    <th></th>
+                    <th>Delete Task</th>
                 </tr>
                 <c:forEach items="${taskList}" var="task">
                     <tr>
-                        <td class="table-checkbox">
+                        <td class="table-checkbox" width="50px">
                             <input type="checkbox" value="Status" ${task.status ? "checked" : ""}/>
                         </td>
                         <td>
@@ -71,13 +73,21 @@
                         <td>
                                 ${task.taskDesc}
                         </td>
+                        <td>
+                            <button onclick="location.href='editTaskForm.jsp'">Edit</button>
+                        </td>
+                        <td width="100px">
+                            <form method="post" action="confirmDelete.jsp">
+                                <input type="submit" value="Delete Task">
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
         <br/>
         <div class="add-task-container">
-            <button class="add-task-btn">Add Task</button>
+            <button onclick="location.href='createTaskForm.jsp'">Add Task</button>
         </div>
     </body>
 </html>
