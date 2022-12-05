@@ -6,8 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.Console;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -93,14 +91,14 @@ public class TaskServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        HttpSession session = request.getSession();
-//
-//        Task newTask = new Task(request.getParameter("taskName"), request.getParameter("taskDesc"), false);
-//
-//
-//        sampleTasks.addTask(newTask);
-//        session.setAttribute("newTask", newTask);
-//        request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
+        // @PuttTim - Please remove this comment after implementing the addTask method with MySQL
+        /*
+        HttpSession session = request.getSession();
+        Task newTask = new Task(request.getParameter("taskName"), request.getParameter("taskDesc"), false);
+        sampleTasks.addTask(newTask);
+        session.setAttribute("newTask", newTask);
+        request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
+        */
         doGet(request, response);
 
     }
