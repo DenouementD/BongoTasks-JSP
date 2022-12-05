@@ -34,9 +34,13 @@ public class TaskServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("taskName"));
-        System.out.println(request.getParameter("taskDesc"));
-        sampleTasks.addTask(new Task(request.getParameter("taskName"), request.getParameter("taskDesc"), false));
-        request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        
+        Task newTask = new Task(request.getParameter("taskName"), request.getParameter("taskDesc"), false);
+
+
+        sampleTasks.addTask(newTask);
+        session.setAttribute("newTask", newTask);
+        request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
     }
 }
