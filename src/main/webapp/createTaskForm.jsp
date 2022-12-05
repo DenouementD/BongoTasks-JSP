@@ -38,7 +38,7 @@
                 outline: 2px solid #30363d;
             }
 
-            .edit-title {
+            .delete-title {
                 font-size: 25px;
                 font-weight: 500;
                 position: relative;
@@ -107,7 +107,7 @@
     <body>
         <div class="edit-bg">
             <form action="TaskServlet" method="get">
-                <div class="edit-title">
+                <div class="delete-title">
                     Add Task
                 </div>
                 <div>
