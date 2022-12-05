@@ -1,4 +1,3 @@
-<%@ page import="com.example.bongotasks.TaskServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -104,7 +103,7 @@
     </head>
     <body>
         <div class="edit-bg">
-            <form action="TaskServlet" method="get">
+            <form action="TaskServlet/updateTask" method="post">
                 <div class="edit-title">
                     Edit Task
                 </div>
@@ -120,7 +119,8 @@
                 <div class="form-buttons">
                     <button
                             class="input-button cancel"
-                            type="submit"
+                            type="button"
+                            onclick="location.href='<%=request.getContextPath()%>/'"
 
                     >
                         <i class="fa fa-ban"></i> Cancel

@@ -111,7 +111,7 @@
     </head>
     <body>
         <div class="edit-bg">
-            <form action="TaskServlet" method="get">
+            <form action="TaskServlet/addTask" method="post">
                 <div class="delete-title">
                     Add Task
                 </div>
@@ -127,7 +127,8 @@
                 <div class="form-buttons">
                     <button
                             class="input-button cancel"
-                            type="submit"
+                            type="button"
+                            onclick="location.href='<%=request.getContextPath()%>/'"
 
                     >
                         <i class="fa fa-ban"></i> Cancel

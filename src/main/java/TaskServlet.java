@@ -1,5 +1,5 @@
-package com.example.bongotasks;
-
+import com.example.bongotasks.SampleTasks;
+import com.example.bongotasks.Task;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +34,7 @@ public class TaskServlet extends HttpServlet {
     }
 
     private void getTasks(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        System.out.println("Get Tasks");
         List<Task> taskList = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks")) {
@@ -56,14 +57,19 @@ public class TaskServlet extends HttpServlet {
 
     private void addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @PuttTim - Please add the code to add a task to the database
+        System.out.println("Add Task");
+
     }
 
     private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @UnscriptedLogic - Please add the code to update a task in the database
+        System.out.println("Update Task");
+
     }
 
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @DenouementD - Please add the code to delete a task in the database
+        System.out.println("Delete Task");
     }
 
     @Override
@@ -80,7 +86,7 @@ public class TaskServlet extends HttpServlet {
                 case "/TaskServlet/deleteTask":
                     deleteTask(request, response);
                     break;
-                default:
+                case "/TaskServlet/dashboard":
                     getTasks(request, response);
                     break;
             }
