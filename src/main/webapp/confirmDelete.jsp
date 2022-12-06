@@ -116,12 +116,38 @@
             margin: 15px 0 15px 0;
             border: 1px solid #30363d;
         }
+
+        .scale-up-center {
+            -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
     </style>
     <head>
         <title>Deletion Confirmation</title>
     </head>
     <body>
-        <div class="edit-bg">
+        <div class="edit-bg scale-up-center">
             <form action="TaskServlet" method="get">
                 <div class="details-container">
                     <div class="delete-title">
