@@ -27,6 +27,10 @@
                 padding: 10px;
             }
 
+            button {
+                cursor: pointer;
+            }
+
             .main {
                 height: 100%;
                 display: flex;
