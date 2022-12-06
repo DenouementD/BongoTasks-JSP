@@ -5,7 +5,7 @@
         <title>BongoTasks</title>
     </head>
     <body>
-        <jsp:forward page="TaskServlet">
+        <jsp:forward page="/TaskServlet/dashboard">
             <jsp:param name="action" value="list"/>
         </jsp:forward>
     </body>
