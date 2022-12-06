@@ -56,7 +56,7 @@
         <h1>Task Created Successfully!</h1>
         <div>
             <p>Task Name: <span>${newTask.taskName}</span></p>
-            <p>Task Name: <span>${newTask.taskDesc}</span></p>
+            <p>Task Description: <span>${newTask.taskDesc}</span></p>
         </div>
         <p></p>
         <button
