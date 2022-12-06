@@ -36,6 +36,7 @@
             border-radius: 15px;
             background: #161B22;
             outline: 2px solid #30363d;
+            filter: drop-shadow(0 0 6px black);
         }
 
         .delete-title {

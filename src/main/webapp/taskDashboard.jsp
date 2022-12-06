@@ -75,6 +75,7 @@
             align-items: center;
             justify-content: center;
             margin: auto;
+            filter: drop-shadow(0 0 6px black);
         }
 
         .task-table {
