@@ -62,12 +62,15 @@
                 width: 100%;
                 outline: none;
                 border-radius: 5px;
-                border: 1px solid white;
+                border: 1px solid #2f2f2f;
                 font-size: 16px;
                 border-bottom-width: 2px;
                 margin-bottom: 20px;
                 padding: 10px;
                 font-weight: 500;
+                background-color: #30363d;
+                color: white;
+                box-shadow: inset 0 0 5px #252525;
             }
 
             .form-textarea {
@@ -138,7 +141,7 @@
     </head>
     <body>
         <div class="edit-bg scale-up-center">
-            <form action="TaskServlet/addTask" method="post">
+            <form action="TaskServlet/addTask" method="post" autocomplete="off">
                 <div class="delete-title">
                     Add Task
                 </div>
