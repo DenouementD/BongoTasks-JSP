@@ -57,7 +57,6 @@ public class TaskServlet extends HttpServlet {
     }
 
     private void addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        // @PuttTim - Please add the code to add a task to the database
         String taskName = request.getParameter("taskName");
         String taskDesc = request.getParameter("taskDesc");
 
@@ -81,10 +80,12 @@ public class TaskServlet extends HttpServlet {
 
     private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @UnscriptedLogic - Please add the code to update a task in the database
+        System.out.println("Update Task");
     }
 
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @DenouementD - Please add the code to delete a task in the database
+        System.out.println("Delete Task");
     }
 
     @Override
