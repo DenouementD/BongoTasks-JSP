@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -23,6 +23,10 @@
             align-items: center;
             background: #0D1117;
             padding: 10px;
+        }
+
+        button {
+            cursor: pointer;
         }
 
         .edit-bg {
@@ -116,38 +120,39 @@
         <title>Deletion Confirmation</title>
     </head>
     <body>
-    <div class="edit-bg">
-        <form action="TaskServlet" method="get">
-            <div class="details-container">
-                <div class="delete-title">
-                    Delete Task?
-                </div>
-                <div class="taskname-section">
-                    <label class="form-label">Name</label>
-                    <p>Task</p>
-                </div>
-                <hr class="solid">
-                <div class="taskdesc-section">
-                    <label class="form-label">Description</label>
-                    <p>Placeholder Description</p>
-                </div>
-                <div class="form-buttons">
-                    <button
-                            class="input-button cancel"
-                            type="submit"
+        <div class="edit-bg">
+            <form action="TaskServlet/deleteTask" method="post">
+                <div class="details-container">
+                    <div class="delete-title">
+                        Delete Task?
+                    </div>
+                    <div class="taskname-section">
+                        <label class="form-label">Name</label>
+                        <p>Task</p>
+                    </div>
+                    <hr class="solid">
+                    <div class="taskdesc-section">
+                        <label class="form-label">Description</label>
+                        <p>Placeholder Description</p>
+                    </div>
+                    <div class="form-buttons">
+                        <button
+                                class="input-button cancel"
+                                type="button"
+                                onclick="location.href='<%=request.getContextPath()%>/'"
 
-                    >
-                        <i class="fa fa-ban"></i> Cancel
-                    </button>
-                    <button
-                            class="input-button confirm"
-                            type="submit"
-                    >
-                        <i class="fa fa-check"></i> Confirm
-                    </button>
+                        >
+                            <i class="fa fa-ban"></i> Cancel
+                        </button>
+                        <button
+                                class="input-button confirm"
+                                type="submit"
+                        >
+                            <i class="fa fa-check"></i> Confirm
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </body>
 </html>

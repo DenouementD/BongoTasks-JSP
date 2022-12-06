@@ -24,6 +24,10 @@
             background: #0D1117;
         }
 
+        button {
+            cursor: pointer;
+        }
+
         .topbar {
             display: flex;
             flex-direction: row;
@@ -32,6 +36,7 @@
             padding: 25px 0 20px 0;
             margin: auto;
         }
+
 
         .input-button {
             height: 50px;
@@ -101,7 +106,7 @@
 
         .table-button {
             background-color: Transparent;
-            background-repeat:no-repeat;
+            background-repeat: no-repeat;
             border: none;
             color: white;
             font-size: 2em;
@@ -117,21 +122,23 @@
         }
     </style>
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>BongoTasks</title>
     </head>
     <body>
         <div class="topbar">
             <div class="title-flex">
-            <img class="bongo-cat" src="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif" />
-            <h1 class="title">
-                 BongoTasks
-            </h1>
+                <img class="bongo-cat"
+                     src="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif"/>
+                <h1 class="title">
+                    BongoTasks
+                </h1>
             </div>
             <button
-                class="input-button"
-                type="submit"
-                onclick="location.href='createTaskForm.jsp'"
+                    class="input-button"
+                    type="submit"
+                    onclick="location.href='createTaskForm.jsp'"
             >
                 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Task
             </button>
@@ -149,9 +156,9 @@
                     <tr>
                         <td class="centered-table" width="50px">
                             <input
-                                class="table-checkbox"
-                                type="checkbox"
-                                value="Status"
+                                    class="table-checkbox"
+                                    type="checkbox"
+                                    value="Status"
                                 ${task.status ? "checked" : ""}
                             />
                         </td>
@@ -162,9 +169,11 @@
                                 ${task.description}
                         </td>
                         <td class="centered-table" width="20px">
-                            <button class="table-button" onclick="location.href='editTaskForm.jsp'">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            </button>
+                            <form action="TaskServlet/fillTask" method="post">
+                                <button class="table-button" type="submit" name="edit-id" value=${task.id}>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                            </form>
                         </td>
                         <td class="centered-table" width="20px">
                             <form method="post" action="confirmDelete.jsp">

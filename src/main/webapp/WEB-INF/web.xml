@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+<web-app
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+        version="4.0">
+
+    <servlet>
+        <servlet-name>TaskServlet</servlet-name>
+        <servlet-class>TaskServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TaskServlet</servlet-name>
+        <url-pattern>/TaskServlet/dashboard</url-pattern>
+        <url-pattern>/TaskServlet/addTask</url-pattern>
+        <url-pattern>/TaskServlet/updateTask</url-pattern>
+        <url-pattern>/TaskServlet/deleteTask</url-pattern>
+        <url-pattern>/TaskServlet/fillTask</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
+

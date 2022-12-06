@@ -10,9 +10,21 @@
     <head>
         <title>Task Created</title>
         <style>
-            html, body {
-                height: 100vh;
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Segoe UI"
+            }
 
+            body {
+                color: white;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                background: #0D1117;
+                padding: 10px;
             }
 
             .main {
@@ -21,6 +33,21 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                gap: 20px;
+            }
+
+            .input-button {
+                margin-top: 5px;
+                height: 3em;
+                width: 40%;
+                outline: none;
+                color: white;
+                border: none;
+                font-size: 20px;
+                font-weight: 500;
+                border-radius: 5px;
+                letter-spacing: 1px;
+                background-color: #30363d;
             }
         </style>
     </head>
@@ -29,9 +56,15 @@
         <h1>Task Created Successfully!</h1>
         <div>
             <p>Task Name: <span>${newTask.taskName}</span></p>
-            <p>Task Name: <span>${newTask.taskDesc}</span></p>
+            <p>Task Description: <span>${newTask.taskDesc}</span></p>
         </div>
         <p></p>
-        <button onclick="location.href='taskDashboard.jsp'">Return to Task Dashboard</button>
+        <button
+                class="input-button"
+                type="button"
+                onclick="location.href='<%=request.getContextPath()%>/'"
+        >
+            Return to Task Dashboard
+        </button>
     </body>
 </html>
