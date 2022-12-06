@@ -34,7 +34,7 @@
                 outline: 2px solid #30363d;
             }
 
-            .delete-title {
+            .edit-title {
                 font-size: 25px;
                 font-weight: 500;
                 position: relative;
