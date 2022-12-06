@@ -114,12 +114,6 @@ public class TaskServlet extends HttpServlet {
             System.out.println(e.getMessage());
         }
 
-        String[] data = new String[4];
-        data[0] = taskName;
-        data[1] = taskDesc;
-        data[2] = taskToUpdate.getName();
-        data[3] = taskToUpdate.getDescription();
-
         request.setAttribute("taskName", taskName);
         request.setAttribute("taskDesc", taskDesc);
         request.setAttribute("newtaskName", taskToUpdate.getName());

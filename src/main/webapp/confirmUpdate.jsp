@@ -104,14 +104,12 @@
           <div class="container">
             <div class="taskname-section">
               <label class="form-label">Name</label>
-              <div>
-                ${taskName}
-              </div>
+              <p>${newtaskName}</p>
             </div>
             <hr class="solid">
             <div class="taskdesc-section">
               <label class="form-label">Description</label>
-              <p>${taskDesc}</p>
+              <p>${newtaskDesc}</p>
             </div>
           </div>
         </div>
@@ -123,12 +121,14 @@
           <div class="container">
             <div class="taskname-section">
               <label class="form-label">Name</label>
-              <p>${newtaskName}</p>
+              <div>
+                ${taskName}
+              </div>
             </div>
             <hr class="solid">
             <div class="taskdesc-section">
               <label class="form-label">Description</label>
-              <p>${newtaskDesc}</p>
+              <p>${taskDesc}</p>
             </div>
           </div>
         </div>
