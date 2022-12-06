@@ -121,6 +121,14 @@
             font-size: 15px;
             font-weight: 600;
         }
+
+        .edit-button:hover {
+            color: #2e9f43;
+        }
+
+        .delete-button:hover {
+            color: #da3633;
+        }
     </style>
     <head>
         <link rel="stylesheet"
@@ -172,14 +180,14 @@
                         <td class="centered-table" width="20px">
                             <form action="TaskServlet/fillTask" method="post">
                                 <button class="table-button" type="submit" name="edit-id" value=${task.id}>
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>
                         <td class="centered-table" width="20px">
                             <form method="post" action="confirmDelete.jsp">
                                 <button class="table-button" type="submit" value="Delete Task">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <i class="fa fa-trash delete-button" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>
