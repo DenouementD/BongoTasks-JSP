@@ -36,6 +36,11 @@
             <p>Task Name: <span>${newTask.taskDesc}</span></p>
         </div>
         <p></p>
-        <button onclick="location.href='taskDashboard.jsp'">Return to Task Dashboard</button>
+        <button
+                type="button"
+                onclick="location.href='<%=request.getContextPath()%>/'"
+        >
+            Return to Task Dashboard
+        </button>
     </body>
 </html>

@@ -121,7 +121,7 @@
     </head>
     <body>
         <div class="edit-bg">
-            <form action="TaskServlet" method="get">
+            <form action="TaskServlet/deleteTask" method="post">
                 <div class="details-container">
                     <div class="delete-title">
                         Delete Task?
@@ -138,7 +138,8 @@
                     <div class="form-buttons">
                         <button
                                 class="input-button cancel"
-                                type="submit"
+                                type="button"
+                                onclick="location.href='<%=request.getContextPath()%>/'"
 
                         >
                             <i class="fa fa-ban"></i> Cancel

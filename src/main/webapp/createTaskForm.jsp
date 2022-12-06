@@ -109,9 +109,10 @@
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
+
     <body>
         <div class="edit-bg">
-            <form action="TaskServlet" method="get">
+            <form action="TaskServlet/addTask" method="post">
                 <div class="delete-title">
                     Add Task
                 </div>
@@ -127,7 +128,8 @@
                 <div class="form-buttons">
                     <button
                             class="input-button cancel"
-                            type="submit"
+                            type="button"
+                            onclick="location.href='<%=request.getContextPath()%>/'"
 
                     >
                         <i class="fa fa-ban"></i> Cancel
