@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "TaskServlet", value = "/TaskServlet")
 public class TaskServlet extends HttpServlet {
@@ -34,7 +36,6 @@ public class TaskServlet extends HttpServlet {
     }
 
     private void getTasks(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        System.out.println("Get Tasks");
         List<Task> taskList = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks")) {
@@ -56,15 +57,30 @@ public class TaskServlet extends HttpServlet {
     }
 
     private void addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        // @PuttTim - Please add the code to add a task to the database
-        System.out.println("Add Task");
+        String taskName = request.getParameter("taskName");
+        String taskDesc = request.getParameter("taskDesc");
 
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO bongotasks.tasks (name, description, status) VALUES (?, ?, ?)")) {
+            preparedStatement.setString(1, taskName);
+            preparedStatement.setString(2, taskDesc);
+            preparedStatement.setBoolean(3, false);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        Map<String, String> newTask = new HashMap<>();
+        newTask.put("taskName", taskName);
+        newTask.put("taskDesc", taskDesc);
+
+        request.setAttribute("newTask", newTask);
+        request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
     }
 
     private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @UnscriptedLogic - Please add the code to update a task in the database
         System.out.println("Update Task");
-
     }
 
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -97,15 +113,6 @@ public class TaskServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // @PuttTim - Please remove this comment after implementing the addTask method with MySQL
-        /*
-        HttpSession session = request.getSession();
-        Task newTask = new Task(request.getParameter("taskName"), request.getParameter("taskDesc"), false);
-        sampleTasks.addTask(newTask);
-        session.setAttribute("newTask", newTask);
-        request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
-        */
         doGet(request, response);
-
     }
 }
