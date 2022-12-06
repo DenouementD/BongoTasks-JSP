@@ -10,13 +10,21 @@
     <head>
         <title>Task Created</title>
         <style>
-            html, body {
-                height: 100vh;
-
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Segoe UI"
             }
 
-            button {
-                cursor: pointer;
+            body {
+                color: white;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                background: #0D1117;
+                padding: 10px;
             }
 
             .main {
@@ -25,6 +33,21 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                gap: 20px;
+            }
+
+            .input-button {
+                margin-top: 5px;
+                height: 3em;
+                width: 40%;
+                outline: none;
+                color: white;
+                border: none;
+                font-size: 20px;
+                font-weight: 500;
+                border-radius: 5px;
+                letter-spacing: 1px;
+                background-color: #30363d;
             }
         </style>
     </head>
@@ -37,6 +60,7 @@
         </div>
         <p></p>
         <button
+                class="input-button"
                 type="button"
                 onclick="location.href='<%=request.getContextPath()%>/'"
         >

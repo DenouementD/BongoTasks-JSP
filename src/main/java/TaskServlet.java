@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "TaskServlet", value = "/TaskServlet")
 public class TaskServlet extends HttpServlet {
@@ -68,7 +70,12 @@ public class TaskServlet extends HttpServlet {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        
+        Map<String, String> newTask = new HashMap<>();
+        newTask.put("taskName", taskName);
+        newTask.put("taskDesc", taskDesc);
 
+        request.setAttribute("newTask", newTask);
         request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
     }
 
