@@ -89,12 +89,10 @@
             }
 
             .cancel {
-                /*outline: 2px solid #da3633;*/
                 background-color: #da3633;
             }
 
             .confirm {
-                /*outline: 2px solid #2e9f43;*/
                 background-color: #2e9f43;
             }
         </style>
@@ -103,18 +101,17 @@
     </head>
     <body>
         <div class="edit-bg">
-            <form action="TaskServlet/updateTask" method="post">
+            <form action="updateTask" method="post">
                 <div class="edit-title">
-                    Edit Task
+                    Editing Task
                 </div>
                 <div>
                     <label class="form-label">Name</label>
-                    <input name="taskName" class="form-input" placeholder="e.g. 'Buy Milk'">
+                    <input name="taskName" class="form-input" value="${task.name}" placeholder="${task.name}">
                 </div>
                 <div>
                     <label class="form-label">Description</label>
-                    <textarea name="taskDesc" class="form-input form-textarea"
-                              placeholder="e.g. 'Go to UnfairPrice buy milk and come back home'"></textarea>
+                    <textarea name="taskDesc" class="form-input form-textarea" placeholder="${task.description}">${task.description}</textarea>
                 </div>
                 <div class="form-buttons">
                     <button

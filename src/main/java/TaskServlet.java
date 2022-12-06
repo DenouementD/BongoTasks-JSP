@@ -47,7 +47,7 @@ public class TaskServlet extends HttpServlet {
                 String description = resultSet.getString("description");
                 boolean status = resultSet.getBoolean("status");
                 taskList.add(new Task(id, name, description, status));
-                System.out.println("Task: " + id + "|" + name + "|" + description + "|" + status);
+//                System.out.println("Task: " + id + "|" + name + "|" + description + "|" + status);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -78,9 +78,34 @@ public class TaskServlet extends HttpServlet {
         request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
     }
 
+    private void fillTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        request.setAttribute("id", request.getParameter("edit-id"));
+
+        Task taskToEdit = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks WHERE id = " + request.getParameter("edit-id"))) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                boolean status = resultSet.getBoolean("status");
+                taskToEdit = new Task(id, name, description, status);
+            }
+
+            request.setAttribute("task", taskToEdit);
+            request.getRequestDispatcher("/editTaskForm.jsp").forward(request, response);
+
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        // @UnscriptedLogic - Please add the code to update a task in the database
-        System.out.println("Update Task");
+        System.out.println("Updated");
+        getTasks(request, response);
     }
 
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -104,6 +129,9 @@ public class TaskServlet extends HttpServlet {
                     break;
                 case "/TaskServlet/dashboard":
                     getTasks(request, response);
+                    break;
+                case "/TaskServlet/fillTask":
+                    fillTask(request, response);
                     break;
             }
         } catch (SQLException e) {
