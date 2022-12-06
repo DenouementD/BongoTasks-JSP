@@ -95,12 +95,38 @@
             .confirm {
                 background-color: #2e9f43;
             }
+
+            .scale-up-center {
+                -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+
+            @-webkit-keyframes scale-up-center {
+                0% {
+                    -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+            @keyframes scale-up-center {
+                0% {
+                    -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
         </style>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="edit-bg">
+        <div class="edit-bg scale-up-center">
             <form action="updateTask" method="post">
                 <div class="edit-title">
                     Editing Task

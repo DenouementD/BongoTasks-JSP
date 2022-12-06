@@ -85,6 +85,10 @@
         align-self: center;
       }
 
+      .input-button:hover {
+        background-color: #2e9f43;
+      }
+
       .large-container {
         display: flex;
         flex-direction: column;
@@ -92,11 +96,42 @@
         width: 100%;
         height: 50%;
       }
+
+      .scale-up-center {
+        -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      }
+
+      .scale-up-center-slow {
+        -webkit-animation: scale-up-center 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-center 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      }
+
+      @-webkit-keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+      @keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
   <body>
     <div class="large-container">
-      <div class="outer-container">
+      <div class="outer-container scale-up-center">
         <div class="edit-bg">
           <div class="title">
             Previous Task
@@ -134,7 +169,7 @@
         </div>
       </div>
       <button
-              class="input-button"
+              class="input-button scale-up-center-slow"
               type="button"
               onclick="location.href='<%=request.getContextPath()%>/'"
       >
