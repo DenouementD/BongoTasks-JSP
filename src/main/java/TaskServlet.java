@@ -17,6 +17,7 @@ import java.util.Map;
 public class TaskServlet extends HttpServlet {
 
     SampleTasks sampleTasks = new SampleTasks();
+    Task taskToUpdate;
 
     // connection to the database
     private Connection getConnection() {
@@ -81,7 +82,6 @@ public class TaskServlet extends HttpServlet {
     private void fillTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         request.setAttribute("id", request.getParameter("edit-id"));
 
-        Task taskToEdit = null;
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks WHERE id = " + request.getParameter("edit-id"))) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -91,10 +91,10 @@ public class TaskServlet extends HttpServlet {
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 boolean status = resultSet.getBoolean("status");
-                taskToEdit = new Task(id, name, description, status);
+                taskToUpdate = new Task(id, name, description, status);
             }
 
-            request.setAttribute("task", taskToEdit);
+            request.setAttribute("task", taskToUpdate);
             request.getRequestDispatcher("/editTaskForm.jsp").forward(request, response);
 
 
@@ -104,7 +104,28 @@ public class TaskServlet extends HttpServlet {
     }
 
     private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        System.out.println("Updated");
+        String taskName = request.getParameter("taskName");
+        String taskDesc = request.getParameter("taskDesc");
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE bongotasks.tasks SET name = '" + taskName + "', description = '" + taskDesc + "' WHERE id = " + taskToUpdate.getId())) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        String[] data = new String[4];
+        data[0] = taskName;
+        data[1] = taskDesc;
+        data[2] = taskToUpdate.getName();
+        data[3] = taskToUpdate.getDescription();
+
+        request.setAttribute("taskName", taskName);
+        request.setAttribute("taskDesc", taskDesc);
+        request.setAttribute("newtaskName", taskToUpdate.getName());
+        request.setAttribute("newtaskDesc", taskToUpdate.getDescription());
+        request.getRequestDispatcher("/confirmUpdate.jsp").forward(request, response);
+
         getTasks(request, response);
     }
 
