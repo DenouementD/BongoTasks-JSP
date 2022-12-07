@@ -131,6 +131,8 @@
         }
     </style>
     <head>
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>BongoTasks</title>

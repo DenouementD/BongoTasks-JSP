@@ -115,6 +115,7 @@
                     transform: scale(1);
                 }
             }
+
             @keyframes scale-up-center {
                 0% {
                     -webkit-transform: scale(0.5);
@@ -128,6 +129,8 @@
         </style>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
     </head>
     <body>
         <div class="edit-bg scale-up-center">
@@ -141,7 +144,8 @@
                 </div>
                 <div>
                     <label class="form-label">Description</label>
-                    <textarea name="taskDesc" class="form-input form-textarea" placeholder="${task.description}">${task.description}</textarea>
+                    <textarea name="taskDesc" class="form-input form-textarea"
+                              placeholder="${task.description}">${task.description}</textarea>
                 </div>
                 <div class="form-buttons">
                     <button

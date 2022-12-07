@@ -9,6 +9,8 @@
 <html>
     <head>
         <title>Task Created</title>
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <style>
             * {
                 margin: 0;

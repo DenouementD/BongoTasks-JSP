@@ -132,6 +132,7 @@
                 transform: scale(1);
             }
         }
+
         @keyframes scale-up-center {
             0% {
                 -webkit-transform: scale(0.5);
@@ -144,6 +145,8 @@
         }
     </style>
     <head>
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <title>Deletion Confirmation</title>
     </head>
     <body>
