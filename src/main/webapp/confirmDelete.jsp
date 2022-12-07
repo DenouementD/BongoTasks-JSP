@@ -36,6 +36,7 @@
             border-radius: 15px;
             background: #161B22;
             outline: 2px solid #30363d;
+            filter: drop-shadow(0 0 6px black);
         }
 
         .delete-title {
@@ -115,13 +116,42 @@
             margin: 15px 0 15px 0;
             border: 1px solid #30363d;
         }
+
+        .scale-up-center {
+            -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
     </style>
     <head>
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <title>Deletion Confirmation</title>
     </head>
     <body>
-        <div class="edit-bg">
-            <form action="TaskServlet/deleteTask" method="post">
+        <div class="edit-bg scale-up-center">
+            <form action="TaskServlet" method="get">
                 <div class="details-container">
                     <div class="delete-title">
                         Delete Task?
@@ -138,8 +168,7 @@
                     <div class="form-buttons">
                         <button
                                 class="input-button cancel"
-                                type="button"
-                                onclick="location.href='<%=request.getContextPath()%>/'"
+                                type="submit"
 
                         >
                             <i class="fa fa-ban"></i> Cancel

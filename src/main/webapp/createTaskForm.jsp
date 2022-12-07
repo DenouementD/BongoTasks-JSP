@@ -10,7 +10,8 @@
 <html>
     <head>
         <title>Create a Task</title>
-
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <style>
             * {
                 margin: 0;
@@ -40,6 +41,7 @@
                 border-radius: 15px;
                 background: #161B22;
                 outline: 2px solid #30363d;
+                filter: drop-shadow(0 0 6px black);
             }
 
             .delete-title {
@@ -61,12 +63,15 @@
                 width: 100%;
                 outline: none;
                 border-radius: 5px;
-                border: 1px solid white;
+                border: 1px solid #2f2f2f;
                 font-size: 16px;
                 border-bottom-width: 2px;
                 margin-bottom: 20px;
                 padding: 10px;
                 font-weight: 500;
+                background-color: #30363d;
+                color: white;
+                box-shadow: inset 0 0 5px #252525;
             }
 
             .form-textarea {
@@ -105,14 +110,40 @@
                 /*outline: 2px solid #2e9f43;*/
                 background-color: #2e9f43;
             }
+
+            .scale-up-center {
+                -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+
+            @-webkit-keyframes scale-up-center {
+                0% {
+                    -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes scale-up-center {
+                0% {
+                    -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
         </style>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-
     <body>
-        <div class="edit-bg">
-            <form action="TaskServlet/addTask" method="post">
+        <div class="edit-bg scale-up-center">
+            <form action="TaskServlet/addTask" method="post" autocomplete="off">
                 <div class="delete-title">
                     Add Task
                 </div>
