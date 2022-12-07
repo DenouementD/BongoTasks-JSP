@@ -170,6 +170,8 @@
                                     class="table-checkbox"
                                     type="checkbox"
                                     value="Status"
+                                    name="Status"
+                                    onchange="location.href='<%=request.getContextPath()%>/TaskServlet/updateStatus?id=${task.id}&status=${!task.status}'"
                                 ${task.status ? "checked" : ""}
                             />
                         </td>
