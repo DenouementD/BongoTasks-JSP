@@ -70,7 +70,7 @@ public class TaskServlet extends HttpServlet {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         Map<String, String> newTask = new HashMap<>();
         newTask.put("taskName", taskName);
         newTask.put("taskDesc", taskDesc);
@@ -123,6 +123,21 @@ public class TaskServlet extends HttpServlet {
         getTasks(request, response);
     }
 
+    private void updateStatus(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String taskId = request.getParameter("id");
+        String taskStatus = request.getParameter("status");
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE bongotasks.tasks SET status = " + taskStatus + " WHERE id = " + taskId)) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        response.sendRedirect(request.getContextPath() + "/");
+    }
+
+
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         // @DenouementD - Please add the code to delete a task in the database
         System.out.println("Delete Task");
@@ -147,6 +162,9 @@ public class TaskServlet extends HttpServlet {
                     break;
                 case "/TaskServlet/fillTask":
                     fillTask(request, response);
+                    break;
+                case "/TaskServlet/updateStatus":
+                    updateStatus(request, response);
                     break;
             }
         } catch (SQLException e) {
