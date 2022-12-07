@@ -137,10 +137,15 @@ public class TaskServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/");
     }
 
-
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        // @DenouementD - Please add the code to delete a task in the database
-        System.out.println("Delete Task");
+        request.setAttribute("id", request.getParameter("delete-id"));
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM bongotasks.tasks WHERE id = " + request.getParameter("delete-id"))) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        request.getRequestDispatcher("/confirmDelete.jsp").forward(request, response);
     }
 
     @Override

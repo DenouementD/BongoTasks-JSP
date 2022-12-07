@@ -189,9 +189,9 @@
                             </form>
                         </td>
                         <td class="centered-table" width="20px">
-                            <form method="post" action="confirmDelete.jsp">
-                                <button class="table-button" type="submit" value="Delete Task">
-                                    <i class="fa fa-trash delete-button" aria-hidden="true"></i>
+                            <form method="post" action="TaskServlet/deleteTask">
+                                <button class="table-button" type="submit" name="delete-id" value=${task.id}>
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>

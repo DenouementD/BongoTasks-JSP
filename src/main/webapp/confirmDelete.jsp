@@ -36,7 +36,6 @@
             border-radius: 15px;
             background: #161B22;
             outline: 2px solid #30363d;
-            filter: drop-shadow(0 0 6px black);
         }
 
         .delete-title {
@@ -150,34 +149,19 @@
         <title>Deletion Confirmation</title>
     </head>
     <body>
-        <div class="edit-bg scale-up-center">
-            <form action="TaskServlet" method="get">
+        <div class="edit-bg">
+            <form action="deleteTask" method="post">
                 <div class="details-container">
                     <div class="delete-title">
-                        Delete Task?
-                    </div>
-                    <div class="taskname-section">
-                        <label class="form-label">Name</label>
-                        <p>Task</p>
-                    </div>
-                    <hr class="solid">
-                    <div class="taskdesc-section">
-                        <label class="form-label">Description</label>
-                        <p>Placeholder Description</p>
+                        Your task has been deleted successfully
                     </div>
                     <div class="form-buttons">
                         <button
-                                class="input-button cancel"
-                                type="submit"
-
+                                class="input-button scale-up-center-slow"
+                                type="button"
+                                onclick="location.href='<%=request.getContextPath()%>/'"
                         >
-                            <i class="fa fa-ban"></i> Cancel
-                        </button>
-                        <button
-                                class="input-button confirm"
-                                type="submit"
-                        >
-                            <i class="fa fa-check"></i> Confirm
+                            Return to Task Dashboard
                         </button>
                     </div>
                 </div>
