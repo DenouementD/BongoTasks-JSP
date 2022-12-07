@@ -12,6 +12,7 @@ target/
 *.iml
 *.ipr
 .idea/misc.xml
+.idea/aws.xml
 
 ### Eclipse ###
 .apt_generated
