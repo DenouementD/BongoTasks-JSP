@@ -32,6 +32,7 @@
                 border-radius: 15px;
                 background: #161B22;
                 outline: 2px solid #30363d;
+                filter: drop-shadow(0 0 6px black);
             }
 
             .edit-title {
@@ -53,12 +54,15 @@
                 width: 100%;
                 outline: none;
                 border-radius: 5px;
-                border: 1px solid white;
+                border: 1px solid #2f2f2f;
                 font-size: 16px;
                 border-bottom-width: 2px;
                 margin-bottom: 20px;
                 padding: 10px;
                 font-weight: 500;
+                background-color: #30363d;
+                color: white;
+                box-shadow: inset 0 0 5px #252525;
             }
 
             .form-textarea {
@@ -111,6 +115,7 @@
                     transform: scale(1);
                 }
             }
+
             @keyframes scale-up-center {
                 0% {
                     -webkit-transform: scale(0.5);
@@ -124,10 +129,12 @@
         </style>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
     </head>
     <body>
         <div class="edit-bg scale-up-center">
-            <form action="updateTask" method="post">
+            <form action="updateTask" method="post" autocomplete="off">
                 <div class="edit-title">
                     Editing Task
                 </div>
@@ -137,7 +144,8 @@
                 </div>
                 <div>
                     <label class="form-label">Description</label>
-                    <textarea name="taskDesc" class="form-input form-textarea" placeholder="${task.description}">${task.description}</textarea>
+                    <textarea name="taskDesc" class="form-input form-textarea"
+                              placeholder="${task.description}">${task.description}</textarea>
                 </div>
                 <div class="form-buttons">
                     <button

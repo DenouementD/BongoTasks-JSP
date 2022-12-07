@@ -75,6 +75,7 @@
             align-items: center;
             justify-content: center;
             margin: auto;
+            filter: drop-shadow(0 0 6px black);
         }
 
         .task-table {
@@ -120,8 +121,18 @@
             font-size: 15px;
             font-weight: 600;
         }
+
+        .edit-button:hover {
+            color: #2e9f43;
+        }
+
+        .delete-button:hover {
+            color: #da3633;
+        }
     </style>
     <head>
+        <link rel="icon" type="image/x-icon"
+              href="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif">
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>BongoTasks</title>
@@ -173,7 +184,7 @@
                         <td class="centered-table" width="20px">
                             <form action="TaskServlet/fillTask" method="post">
                                 <button class="table-button" type="submit" name="edit-id" value=${task.id}>
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>
