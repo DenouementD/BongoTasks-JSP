@@ -169,9 +169,11 @@
                                 ${task.description}
                         </td>
                         <td class="centered-table" width="20px">
-                            <button class="table-button" onclick="location.href='editTaskForm.jsp'">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            </button>
+                            <form action="TaskServlet/fillTask" method="post">
+                                <button class="table-button" type="submit" name="edit-id" value=${task.id}>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                            </form>
                         </td>
                         <td class="centered-table" width="20px">
                             <form method="post" action="confirmDelete.jsp">

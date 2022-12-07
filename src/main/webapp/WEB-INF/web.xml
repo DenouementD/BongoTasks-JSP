@@ -16,6 +16,7 @@
         <url-pattern>/TaskServlet/addTask</url-pattern>
         <url-pattern>/TaskServlet/updateTask</url-pattern>
         <url-pattern>/TaskServlet/deleteTask</url-pattern>
+        <url-pattern>/TaskServlet/fillTask</url-pattern>
     </servlet-mapping>
 
 
