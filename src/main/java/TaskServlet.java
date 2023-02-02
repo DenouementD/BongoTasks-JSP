@@ -16,11 +16,11 @@ import java.util.Map;
 @WebServlet(name = "TaskServlet", value = "/TaskServlet")
 public class TaskServlet extends HttpServlet {
 
-    SampleTasks sampleTasks = new SampleTasks();
-    Task taskToUpdate;
+//    SampleTasks sampleTasks = new SampleTasks();
+    public static Task taskToUpdate = new Task("0", "0", "0", false);
 
     // connection to the database
-    private Connection getConnection() {
+    protected Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -36,11 +36,12 @@ public class TaskServlet extends HttpServlet {
         return connection;
     }
 
-    private void getTasks(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected List<Task> getTasks(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Task> taskList = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks")) {
             ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println(resultSet);
 
             while (resultSet.next()) {
                 String id = resultSet.getString("id");
@@ -55,9 +56,10 @@ public class TaskServlet extends HttpServlet {
         }
         request.setAttribute("taskList", taskList);
         request.getRequestDispatcher("/taskDashboard.jsp").forward(request, response);
+        return taskList;
     }
 
-    private void addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected Map<String, String> addTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String taskName = request.getParameter("taskName");
         String taskDesc = request.getParameter("taskDesc");
 
@@ -77,13 +79,16 @@ public class TaskServlet extends HttpServlet {
 
         request.setAttribute("newTask", newTask);
         request.getRequestDispatcher("/confirmCreate.jsp").forward(request, response);
+        return newTask;
     }
 
-    private void fillTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        request.setAttribute("id", request.getParameter("edit-id"));
+    protected Task fillTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String editId = request.getParameter("edit-id");
+
+        request.setAttribute("id", editId);
 
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks WHERE id = " + request.getParameter("edit-id"))) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM bongotasks.tasks WHERE id = " + editId)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -97,13 +102,14 @@ public class TaskServlet extends HttpServlet {
             request.setAttribute("task", taskToUpdate);
             request.getRequestDispatcher("/editTaskForm.jsp").forward(request, response);
 
-
+            return taskToUpdate;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
-    private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected Task updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String taskName = request.getParameter("taskName");
         String taskDesc = request.getParameter("taskDesc");
 
@@ -120,10 +126,10 @@ public class TaskServlet extends HttpServlet {
         request.setAttribute("newtaskDesc", taskToUpdate.getDescription());
         request.getRequestDispatcher("/confirmUpdate.jsp").forward(request, response);
 
-        getTasks(request, response);
+        return new Task(taskToUpdate.getId() ,taskToUpdate.getName(), taskToUpdate.getDescription(), taskToUpdate.isStatus());
     }
 
-    private void updateStatus(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected void updateStatus(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String taskId = request.getParameter("id");
         String taskStatus = request.getParameter("status");
 
@@ -133,14 +139,14 @@ public class TaskServlet extends HttpServlet {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
         response.sendRedirect(request.getContextPath() + "/");
     }
 
-    private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        request.setAttribute("id", request.getParameter("delete-id"));
+    protected void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String deleteId = request.getParameter("delete-id");
+        request.setAttribute("id", deleteId);
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM bongotasks.tasks WHERE id = " + request.getParameter("delete-id"))) {
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM bongotasks.tasks WHERE id = " + deleteId)) {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -174,6 +180,7 @@ public class TaskServlet extends HttpServlet {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+
         }
     }
 
